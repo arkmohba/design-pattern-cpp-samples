@@ -15,6 +15,8 @@ int main() {
     Book book = it->next();
     cout << book.getName() << endl;
   }
+  delete it;
+  delete book_shelf;
   return 0;
 }
 
