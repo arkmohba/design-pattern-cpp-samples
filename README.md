@@ -8,3 +8,10 @@
 # 参考
 
 CMakeの参考：　https://kamino.hatenablog.com/entry/cmake_tutorial1#sec3_1
+
+```
+$ mkdir build
+$ cd build
+$ cmake ..
+$ cmake --build .
+```
