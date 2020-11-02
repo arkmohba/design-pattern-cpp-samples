@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.1)
+project(sample CXX)
+FILE(GLOB sources *.cpp)
+add_executable(main_app ${sources})
+target_compile_features(main_app PRIVATE cxx_std_17)
