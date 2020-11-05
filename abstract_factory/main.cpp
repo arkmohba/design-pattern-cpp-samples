@@ -5,9 +5,10 @@
 
 #include "factory.hpp"
 #include "list_factory.hpp"
+#include "table_factory.hpp"
 
 const char FACTORY_LIST[] = "list";
-const char FORMAT_TABLE[] = "table";
+const char FACTORY_TABLE[] = "table";
 
 using namespace std;
 
@@ -19,6 +20,8 @@ void usage() {
 FactoryPtr select_factory(string factory_type) {
   if (factory_type == FACTORY_LIST) {
     return FactoryPtr(new ListFactory());
+  } else if (factory_type == FACTORY_TABLE) {
+    return FactoryPtr(new TableFactory());
   } else {
     cout << "please set list or table" << endl;
     return nullptr;
