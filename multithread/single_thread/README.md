@@ -3,7 +3,9 @@
 SingleThreadedExecutionパターンを実装してみたもの。
 CriticalSection, Critical Regionとも呼ばれる
 
-
+* デッドロックにはならないように注意する。
+  * ロックの順序を一意にするなど
+* checkメソッドはプライベートで他に呼ばれないのでロックしなくていい。
 
 
 # 所感
