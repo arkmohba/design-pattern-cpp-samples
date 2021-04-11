@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.1)
+project(iterator CXX)
+FILE(GLOB sources *.cpp)
+find_package(Threads REQUIRED)
+add_executable(main_app ${sources})
+target_link_libraries(main_app Threads::Threads)
+target_compile_features(main_app PRIVATE cxx_std_17)
