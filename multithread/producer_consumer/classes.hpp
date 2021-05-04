@@ -8,7 +8,7 @@ class Table {
  private:
   std::mutex __put_mutex, __take_mutex;
   std::condition_variable __cv;
-  std::mutex __mutex;  // __contentと__changedを守るmutex
+  std::mutex __mutex;
   std::unique_ptr<std::string[]> buffer;
   int n_dish;
   int tail, head, count;
