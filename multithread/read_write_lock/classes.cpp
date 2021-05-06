@@ -92,7 +92,13 @@ void Data::write(char c) {
   __lock.write_unlock();
 }
 
-void Data::slowly() { std::uniform_int_distribution<int> dist(1, 50); }
+void Data::slowly() {
+  auto rd = random_device{};
+  std::mt19937 mt{rd()};
+  std::uniform_int_distribution<int> dist(1, 50);
+  auto sleep_time = dist(mt);
+  std::this_thread::sleep_for(std::chrono::milliseconds(sleep_time));
+}
 
 void thread_func_writer(weak_ptr<Data> data_weak, string filler) {
   int index = 0;
