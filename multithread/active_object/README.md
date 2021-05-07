@@ -28,7 +28,9 @@ Active Objectパターンを実装してみたもの。
   * 戻り地が必要ならばFutureパターンを使う。FutureObjectはProxyで、RealObjectはServantで作成する。
   * ScheduleThreadの変更は必要ない。そもそもActiveObjectとは直接関係していない。（ProxyはScheduleを使う側、ServantはMethodRequestの中に隠れている。）
 * ActiveObject同士で相互に呼び出しを行うこともできる。つまりServant役が更に別のActiveObjectを呼ぶようなシステム。
-* メソッド呼び出しのスレッドとメソッド実行のスレッドが違い、間をMethodRequestとResultが行き来する。スレッドを別マシンに分ける事もできるので
+* メソッド呼び出しのスレッドとメソッド実行のスレッドが違い、間をMethodRequestとResultが行き来する。スレッドを別マシンに分ける事もできる。
+* 本質的には重たくてスレッドセーフでないServantの処理とClientの処理のスレッドを分け、スレッド間の非同期通信にProducer-ConsumerパターンとFutureパターンを使い、応答性を上げることが目的。
+  * スレッドセーフでないためSchedulerを使ってシングルスレッドでServantを実行する。
 
 # 所感
 
